@@ -38,7 +38,7 @@ dnf install -y \
 go get github.com/cpuguy83/go-md2man  
 
 RUNC=v1.0.1         # https://github.com/opencontainers/runc/releases
-CONMON=v2.0.29      # https://github.com/containers/conmon/releases
+CONMON=v2.0.27      # https://github.com/containers/conmon/releases
 CRIO=v1.21.2        # https://github.com/cri-o/cri-o/releases
 CRI_TOOLS=v1.21.0   # https://github.com/kubernetes-sigs/cri-tools/releases
 
@@ -46,7 +46,7 @@ CRI_TOOLS=v1.21.0   # https://github.com/kubernetes-sigs/cri-tools/releases
 wget https://github.com/opencontainers/runc/releases/download/$RUNC/runc.amd64 -O /usr/local/sbin/runc && chmod +x /usr/local/sbin/runc
 
 # Install conmon
-wget https://github.com/containers/conmon/releases/download/$CONMON/conmon -O /usr/local/bin/conmon && chmod +x /usr/local/bin/conmon
+wget https://github.com/containers/conmon/releases/download/$CONMON/conmon.amd64 -O /usr/local/bin/conmon && chmod +x /usr/local/bin/conmon
 
 # install cri-o
 wget https://github.com/cri-o/cri-o/archive/$CRIO.tar.gz
