@@ -19,7 +19,7 @@ pkg_tar(
         ":scripts",
     ],
     mode = "0o644",
-    package_dir = "centos-8_k8s-v1.19.3-packer-config",
+    package_dir = "centos-8_k8s-v1.21.2-packer-config",
     strip_prefix = ".",
     visibility = ["//visibility:public"],
 )
