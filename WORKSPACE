@@ -161,7 +161,7 @@ http_archive(
 )
 
 # kubectl binary dependencies
-KUBECTL_VERSION = "1.17.2"
+KUBECTL_VERSION = "1.21.2"
 
 http_file(
     name = "kubectl_linux_amd64_bin",
@@ -174,7 +174,7 @@ http_file(
 http_file(
     name = "kubectl_darwin_amd64_bin",
     urls = ["https://storage.googleapis.com/kubernetes-release/release/v%s/bin/linux/amd64/kubectl" % KUBECTL_VERSION],
-    sha256 = "5d5bd9f88cc77fc51057641c46a2a73e6490550efa7c808f2d2e27a90cfe0c6e",
+    sha256 = "55b982527d76934c2f119e70bf0d69831d3af4985f72bb87cd4924b1c7d528da",
     downloaded_file_path = "kubectl",
     executable = True,
 )

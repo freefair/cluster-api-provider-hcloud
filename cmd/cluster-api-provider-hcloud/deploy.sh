@@ -10,7 +10,7 @@ IMAGE_TAR=$1
 shift
 IMAGE_DIGEST=sha256:$(cat "${IMAGE_TAR/.tar/}.0.config.sha256")
 
-WORK_DIR=`mktemp -d -p "$(pwd)"`
+WORK_DIR=`mktemp -d "$(pwd)/tmp.XXXXXXXXX"`
 function cleanup {
   rm -rf "$WORK_DIR"
 }
