@@ -166,7 +166,7 @@ KUBECTL_VERSION = "1.21.2"
 http_file(
     name = "kubectl_linux_amd64_bin",
     urls = ["https://storage.googleapis.com/kubernetes-release/release/v%s/bin/linux/amd64/kubectl" % KUBECTL_VERSION],
-    sha256 = "7732548b9c353114b0dfa173bc7bcdedd58a607a5b4ca49d867bdb4c05dc25a1",
+    sha256 = "55b982527d76934c2f119e70bf0d69831d3af4985f72bb87cd4924b1c7d528da",
     downloaded_file_path = "kubectl",
     executable = True,
 )
