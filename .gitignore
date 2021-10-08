@@ -32,3 +32,5 @@ bin
 /bazel-cluster-api-provider-hcloud
 /bazel-out
 /bazel-testlogs
+
+.DS_Store
