@@ -9,7 +9,7 @@ shift
 RELEASE_TAR=$1
 shift
 
-WORK_DIR=`mktemp -d -p "$(pwd)"`
+WORK_DIR=`mktemp -d "$(pwd)/tmp.XXXXXXXXX"`
 function cleanup {
   rm -rf "$WORK_DIR"
 }
