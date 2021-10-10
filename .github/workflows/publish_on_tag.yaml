@@ -39,7 +39,7 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        files:
+        files: |
           bazel-bin/config/infrastructure-components.yaml
           config/cluster-template.yaml
           config/metadata.yaml
