@@ -35,3 +35,11 @@ jobs:
     - name: Push image
       run: |
         "${GITHUB_WORKSPACE}/bin/bazel" run //:images.push
+
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files:
+          bazel-bin/config/infrastructure-components.yaml
+          config/cluster-template.yaml
+          config/metadata.yaml
