@@ -14,7 +14,7 @@ import (
 	kubejson "k8s.io/apimachinery/pkg/runtime/serializer/json"
 	"k8s.io/apimachinery/pkg/runtime/serializer/streaming"
 	bootstrapv1 "sigs.k8s.io/cluster-api/bootstrap/kubeadm/api/v1beta1"
-	kubeadmv1beta2 "sigs.k8s.io/cluster-api/bootstrap/kubeadm/types/v1beta2"
+	kubeadmv1beta2 "sigs.k8s.io/cluster-api/bootstrap/kubeadm/types/upstreamv1beta2"
 	kubeyaml "sigs.k8s.io/yaml"
 )
 
