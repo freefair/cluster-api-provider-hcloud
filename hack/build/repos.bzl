@@ -1766,7 +1766,7 @@ def go_repositories():
         build_file_generation = "on",
         build_file_proto_mode = "disable_global",
         importpath = "sigs.k8s.io/cluster-api",
-        sum = "h1:hSIdfaNAHxZpB7r6W6iNoRjm4feqfeKgc0QorfYGyLo=",
+        sum = "h1:GcVA2ObQTXo/+jzSLWPy4Bd3NeiwJyAB8n19kyJIotA=",
         version = "v1.0.0",
     )
     go_repository(
