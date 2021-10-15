@@ -1,6 +1,6 @@
 module github.com/freefair/cluster-api-provider-hcloud
 
-go 1.14
+go 1.13
 
 require (
 	github.com/bronze1man/yaml2json v0.0.0-20190501122504-861f66b7262b
