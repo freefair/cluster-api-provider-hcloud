@@ -1,6 +1,7 @@
-package fake
-
+//go:build ignore
 // +build ignore
+
+package fake
 
 import (
 	_ "github.com/tcnksm/ghr"
