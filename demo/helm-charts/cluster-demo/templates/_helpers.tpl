@@ -1,6 +1,6 @@
 {{- define "cluster.HcloudMachineDeployments" }}
 {{- range $deployment := .Values.hcloudWorkers -}}
-apiVersion: cluster.x-k8s.io/v1alpha3
+apiVersion: cluster.x-k8s.io/v1beta1
 kind: MachineDeployment
 metadata:
   name: {{ $.Values.cluster.name }}-hc-workers-{{ $deployment.name }}
@@ -24,11 +24,11 @@ spec:
       version: {{ $.Values.cluster.kubernetesVersion }}
       bootstrap:
         configRef:
-          apiVersion: bootstrap.cluster.x-k8s.io/v1alpha3
+          apiVersion: bootstrap.cluster.x-k8s.io/v1beta1
           kind: KubeadmConfigTemplate
           name: {{ $.Values.cluster.name }}-hc-workers-{{ $deployment.name }}-ka-{{ $deployment.kubeadmTemplate.version }}
       infrastructureRef:
-        apiVersion: cluster-api-provider-hcloud.capihc.com/v1alpha3
+        apiVersion: cluster-api-provider-hcloud.capihc.com/v1beta1
         kind: HcloudMachineTemplate
         name: {{ $.Values.cluster.name }}-hc-workers-{{ $deployment.name }}-mt-{{ $deployment.machineTemplate.version }}
       failureDomain: {{ $deployment.server.location }}
@@ -39,7 +39,7 @@ spec:
 
 {{- define "cluster.HcloudMachineTemplates" }}
 {{- range $mt := .Values.hcloudWorkers -}}
-apiVersion: cluster-api-provider-hcloud.capihc.com/v1alpha3
+apiVersion: cluster-api-provider-hcloud.capihc.com/v1beta1
 kind: HcloudMachineTemplate
 metadata:
   name: {{ $.Values.cluster.name }}-hc-workers-{{ $mt.name }}-mt-{{ $mt.machineTemplate.version }}
@@ -55,7 +55,7 @@ spec:
 
 {{- define "cluster.HcloudKubeadmConfigTemplate" }}
 {{- range $ka := .Values.hcloudWorkers -}}
-apiVersion: bootstrap.cluster.x-k8s.io/v1alpha3
+apiVersion: bootstrap.cluster.x-k8s.io/v1beta1
 kind: KubeadmConfigTemplate
 metadata:
   name: {{ $.Values.cluster.name }}-hc-workers-{{ $ka.name }}-ka-{{ $ka.kubeadmTemplate.version }}
@@ -79,7 +79,7 @@ spec:
 
 {{- define "cluster.HcloudMachineHealthChecks" }}
 {{- range $mhc := .Values.hcloudWorkers -}}
-apiVersion: cluster.x-k8s.io/v1alpha3
+apiVersion: cluster.x-k8s.io/v1beta1
 kind: MachineHealthCheck
 metadata:
   name: {{ $.Values.cluster.name }}-hc-workers-{{ $mhc.name }}-{{ $mhc.machineHealthCheck.name }}
@@ -105,7 +105,7 @@ spec:
 
 {{- define "cluster.BaremetalMachineDeployments" }}
 {{- range $deployment := .Values.hetznerBaremetalWorkers -}}
-apiVersion: cluster.x-k8s.io/v1alpha3
+apiVersion: cluster.x-k8s.io/v1beta1
 kind: MachineDeployment
 metadata:
   name: {{ $.Values.cluster.name }}-bm-workers-{{ $deployment.name }}
@@ -129,11 +129,11 @@ spec:
       version: {{ $.Values.cluster.kubernetesVersion }}
       bootstrap:
         configRef:
-          apiVersion: bootstrap.cluster.x-k8s.io/v1alpha3
+          apiVersion: bootstrap.cluster.x-k8s.io/v1beta1
           kind: KubeadmConfigTemplate
           name: {{ $.Values.cluster.name }}-bm-workers-{{ $deployment.name }}-ka-{{ $deployment.kubeadmTemplate.version }}
       infrastructureRef:
-        apiVersion: cluster-api-provider-hcloud.capihc.com/v1alpha3
+        apiVersion: cluster-api-provider-hcloud.capihc.com/v1beta1
         kind: BareMetalMachineTemplate
         name: {{ $.Values.cluster.name }}-bm-workers-{{ $deployment.name }}-mt-{{ $deployment.machineTemplate.version }}
       # failureDomain: {{ $deployment.server.location }}
@@ -146,7 +146,7 @@ spec:
 
 {{- define "cluster.BaremetalMachineTemplates" }}
 {{- range $mt := .Values.hetznerBaremetalWorkers -}}
-apiVersion: cluster-api-provider-hcloud.capihc.com/v1alpha3
+apiVersion: cluster-api-provider-hcloud.capihc.com/v1beta1
 kind: BareMetalMachineTemplate
 metadata:
   name: {{ $.Values.cluster.name }}-bm-workers-{{ $mt.name }}-mt-{{ $mt.machineTemplate.version }}
@@ -171,7 +171,7 @@ spec:
 
 {{- define "cluster.BaremetalKubeadmConfigTemplate" }}
 {{- range $ka := .Values.hetznerBaremetalWorkers -}}
-apiVersion: bootstrap.cluster.x-k8s.io/v1alpha3
+apiVersion: bootstrap.cluster.x-k8s.io/v1beta1
 kind: KubeadmConfigTemplate
 metadata:
   name: {{ $.Values.cluster.name }}-bm-workers-{{ $ka.name }}-ka-{{ $ka.kubeadmTemplate.version }}
@@ -195,7 +195,7 @@ spec:
 
 {{- define "cluster.BaremetalMachineHealthChecks" }}
 {{- range $mhc := .Values.hetznerBaremetalWorkers -}}
-apiVersion: cluster.x-k8s.io/v1alpha3
+apiVersion: cluster.x-k8s.io/v1beta1
 kind: MachineHealthCheck
 metadata:
   name: {{ $.Values.cluster.name }}-bm-workers-{{ $mhc.name }}-{{ $mhc.machineHealthCheck.name }}

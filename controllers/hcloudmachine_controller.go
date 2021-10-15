@@ -23,7 +23,7 @@ import (
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/client-go/tools/record"
-	clusterv1 "sigs.k8s.io/cluster-api/api/v1alpha3"
+	clusterv1 "sigs.k8s.io/cluster-api/api/v1beta1"
 	"sigs.k8s.io/cluster-api/util"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
@@ -34,11 +34,11 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 	"sigs.k8s.io/controller-runtime/pkg/source"
 
-	infrav1 "github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/api/v1alpha3"
-	"github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/cloud/resources/server"
-	"github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/manifests"
-	"github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/packer"
-	"github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/scope"
+	infrav1 "github.com/freefair/cluster-api-provider-hcloud/api/v1beta1"
+	"github.com/freefair/cluster-api-provider-hcloud/pkg/cloud/resources/server"
+	"github.com/freefair/cluster-api-provider-hcloud/pkg/manifests"
+	"github.com/freefair/cluster-api-provider-hcloud/pkg/packer"
+	"github.com/freefair/cluster-api-provider-hcloud/pkg/scope"
 )
 
 // HcloudMachineReconciler reconciles a HcloudMachine object

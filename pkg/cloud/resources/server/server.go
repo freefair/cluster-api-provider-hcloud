@@ -14,17 +14,17 @@ import (
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/types"
 	errorutil "k8s.io/apimachinery/pkg/util/errors"
-	clusterv1 "sigs.k8s.io/cluster-api/api/v1alpha3"
+	clusterv1 "sigs.k8s.io/cluster-api/api/v1beta1"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 
-	infrav1 "github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/api/v1alpha3"
-	loadbalancer "github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/cloud/resources/loadbalancer"
-	"github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/cloud/utils"
-	packerapi "github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/packer/api"
+	infrav1 "github.com/freefair/cluster-api-provider-hcloud/api/v1beta1"
+	loadbalancer "github.com/freefair/cluster-api-provider-hcloud/pkg/cloud/resources/loadbalancer"
+	"github.com/freefair/cluster-api-provider-hcloud/pkg/cloud/utils"
+	packerapi "github.com/freefair/cluster-api-provider-hcloud/pkg/packer/api"
 
-	"github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/scope"
-	"github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/userdata"
+	"github.com/freefair/cluster-api-provider-hcloud/pkg/scope"
+	"github.com/freefair/cluster-api-provider-hcloud/pkg/userdata"
 )
 
 type Service struct {

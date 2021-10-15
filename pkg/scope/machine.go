@@ -8,12 +8,12 @@ import (
 	"github.com/pkg/errors"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/types"
-	clusterv1 "sigs.k8s.io/cluster-api/api/v1alpha3"
+	clusterv1 "sigs.k8s.io/cluster-api/api/v1beta1"
 	"sigs.k8s.io/cluster-api/util"
 	"sigs.k8s.io/cluster-api/util/patch"
 
-	infrav1 "github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/api/v1alpha3"
-	packerapi "github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/packer/api"
+	infrav1 "github.com/freefair/cluster-api-provider-hcloud/api/v1beta1"
+	packerapi "github.com/freefair/cluster-api-provider-hcloud/pkg/packer/api"
 )
 
 // ClusterScopeParams defines the input parameters used to create a new Scope.

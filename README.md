@@ -61,7 +61,7 @@ Then we need to register this infrastructure provider in your `$HOME/.cluster-ap
 ```yaml
 providers:
   - name: "hcloud"
-    url: "https://github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/releases/latest/infrastructure-components.yaml"
+    url: "https://github.com/freefair/cluster-api-provider-hcloud/releases/latest/infrastructure-components.yaml"
     type: "InfrastructureProvider"
 ```
 

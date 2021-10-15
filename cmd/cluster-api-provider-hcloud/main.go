@@ -7,17 +7,17 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	clientgoscheme "k8s.io/client-go/kubernetes/scheme"
 	_ "k8s.io/client-go/plugin/pkg/client/auth/gcp"
-	clusterv1 "sigs.k8s.io/cluster-api/api/v1alpha3"
-	bootstrapv1 "sigs.k8s.io/cluster-api/bootstrap/kubeadm/api/v1alpha3"
+	clusterv1 "sigs.k8s.io/cluster-api/api/v1beta1"
+	bootstrapv1 "sigs.k8s.io/cluster-api/bootstrap/kubeadm/api/v1beta1"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/controller"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 	"sigs.k8s.io/controller-runtime/pkg/manager"
 
-	infrav1alpha3 "github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/api/v1alpha3"
-	"github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/controllers"
-	"github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/manifests"
-	"github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/packer"
+	infrav1beta1 "github.com/freefair/cluster-api-provider-hcloud/api/v1beta1"
+	"github.com/freefair/cluster-api-provider-hcloud/controllers"
+	"github.com/freefair/cluster-api-provider-hcloud/pkg/manifests"
+	"github.com/freefair/cluster-api-provider-hcloud/pkg/packer"
 	// +kubebuilder:scaffold:imports
 )
 
@@ -38,7 +38,7 @@ var rootFlags = struct {
 func init() {
 	_ = clientgoscheme.AddToScheme(scheme)
 
-	_ = infrav1alpha3.AddToScheme(scheme)
+	_ = infrav1beta1.AddToScheme(scheme)
 	_ = clusterv1.AddToScheme(scheme)
 	_ = bootstrapv1.AddToScheme(scheme)
 	// +kubebuilder:scaffold:scheme
@@ -136,10 +136,10 @@ var rootCmd = &cobra.Command{
 			}
 
 			for _, t := range []webhookSetuper{
-				&infrav1alpha3.HcloudCluster{},
-				&infrav1alpha3.HcloudClusterList{},
-				&infrav1alpha3.HcloudMachine{},
-				&infrav1alpha3.HcloudMachineList{},
+				&infrav1beta1.HcloudCluster{},
+				&infrav1beta1.HcloudClusterList{},
+				&infrav1beta1.HcloudMachine{},
+				&infrav1beta1.HcloudMachineList{},
 			} {
 				if err = t.SetupWebhookWithManager(mgr); err != nil {
 					setupLog.Error(err, "unable to create webhook", "webhook", "HcloudCluster")

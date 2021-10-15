@@ -1,26 +1,25 @@
 ---
-apiVersion: addons.cluster.x-k8s.io/v1alpha3
+apiVersion: addons.cluster.x-k8s.io/v1beta1
 kind: ClusterResourceSet
 metadata:
- name: crs-hcloud-controller-manager
+ name: crs-hcloud-controller-manager-privnet
  namespace: default
 spec:
  #mode: "ApplyOnce"
  clusterSelector:
    matchLabels:
-     ccm: hcloud-controller-manager
+     ccm: hcloud-controller-manager-privnet
  resources:
-   - name: cm-hcloud-controller-manager
+   - name: cm-hcloud-controller-manager-privnet
      kind: ConfigMap
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: cm-hcloud-controller-manager
+  name: cm-hcloud-controller-manager-privnet
 data:
-  hcloud.yaml: |+
+  hcloud1.yaml: |
     # NOTE: this release was tested against kubernetes v1.16.x
-
     ---
     apiVersion: v1
     kind: ServiceAccount
@@ -29,7 +28,7 @@ data:
       namespace: kube-system
     ---
     kind: ClusterRoleBinding
-    apiVersion: rbac.authorization.k8s.io/v1beta1
+    apiVersion: rbac.authorization.k8s.io/v1
     metadata:
       name: system:cloud-controller-manager
     roleRef:
@@ -74,14 +73,17 @@ data:
               effect: NoSchedule
             - key: "node.kubernetes.io/not-ready"
               effect: "NoSchedule"
+          hostNetwork: true
           containers:
-            - image: hetznercloud/hcloud-cloud-controller-manager:v1.8.1
+            - image: hetznercloud/hcloud-cloud-controller-manager:v1.12.0
               name: hcloud-cloud-controller-manager
               command:
                 - "/bin/hcloud-cloud-controller-manager"
                 - "--cloud-provider=hcloud"
                 - "--leader-elect=false"
                 - "--allow-untagged-cloud"
+                - "--allocate-node-cidrs=true"
+                - "--cluster-cidr=10.100.0.0/14"
               resources:
                 requests:
                   cpu: 100m
@@ -96,3 +98,8 @@ data:
                     secretKeyRef:
                       name: hcloud
                       key: token
+                - name: HCLOUD_NETWORK
+                  valueFrom:
+                    secretKeyRef:
+                      name: hcloud
+                      key: network

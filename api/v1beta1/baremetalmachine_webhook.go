@@ -1,4 +1,4 @@
-package v1alpha3
+package v1beta1
 
 // TODO: Fix error that controller is not started if these webhooks are not commented out
 /*
@@ -24,7 +24,7 @@ func (r *BareMetalMachineList) SetupWebhookWithManager(mgr ctrl.Manager) error {
 		Complete()
 }
 
-// +kubebuilder:webhook:verbs=create;update,path=/validate-cluster-api-provider-hcloud-capihc-com-v1alpha3-baremetalmachine,mutating=false,failurePolicy=fail,matchPolicy=Equivalent,groups=cluster-api-provider-hcloud.capihc.com,resources=baremetalmachines,versions=v1alpha3,name=validation.baremetalmachine.cluster-api-provider-hcloud.capihc.com
+// +kubebuilder:webhook:verbs=create;update,path=/validate-cluster-api-provider-hcloud-capihc-com-v1beta1-baremetalmachine,mutating=false,failurePolicy=fail,matchPolicy=Equivalent,groups=cluster-api-provider-hcloud.capihc.com,resources=baremetalmachines,versions=v1beta1,name=validation.baremetalmachine.cluster-api-provider-hcloud.capihc.com
 
 var _ webhook.Validator = &BareMetalMachine{}
 

@@ -3,7 +3,7 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "go_default_library",
     srcs = ["baremetal.go"],
-    importpath = "github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/baremetal",
+    importpath = "github.com/freefair/cluster-api-provider-hcloud/pkg/baremetal",
     visibility = ["//visibility:public"],
     deps = [
         "//pkg/scope:go_default_library",

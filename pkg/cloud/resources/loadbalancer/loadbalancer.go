@@ -9,9 +9,9 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apiserver/pkg/storage/names"
 
-	infrav1 "github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/api/v1alpha3"
-	"github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/cloud/utils"
-	"github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/scope"
+	infrav1 "github.com/freefair/cluster-api-provider-hcloud/api/v1beta1"
+	"github.com/freefair/cluster-api-provider-hcloud/pkg/cloud/utils"
+	"github.com/freefair/cluster-api-provider-hcloud/pkg/scope"
 )
 
 type Service struct {

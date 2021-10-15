@@ -1,25 +1,26 @@
 ---
-apiVersion: addons.cluster.x-k8s.io/v1alpha3
+apiVersion: addons.cluster.x-k8s.io/v1beta1
 kind: ClusterResourceSet
 metadata:
- name: crs-hcloud-controller-manager-privnet
+ name: crs-hcloud-controller-manager
  namespace: default
 spec:
  #mode: "ApplyOnce"
  clusterSelector:
    matchLabels:
-     ccm: hcloud-controller-manager-privnet
+     ccm: hcloud-controller-manager
  resources:
-   - name: cm-hcloud-controller-manager-privnet
+   - name: cm-hcloud-controller-manager
      kind: ConfigMap
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: cm-hcloud-controller-manager-privnet
+  name: cm-hcloud-controller-manager
 data:
-  hcloud1.yaml: |
+  hcloud.yaml: |+
     # NOTE: this release was tested against kubernetes v1.16.x
+
     ---
     apiVersion: v1
     kind: ServiceAccount
@@ -73,17 +74,14 @@ data:
               effect: NoSchedule
             - key: "node.kubernetes.io/not-ready"
               effect: "NoSchedule"
-          hostNetwork: true
           containers:
-            - image: hetznercloud/hcloud-cloud-controller-manager:v1.7.0
+            - image: hetznercloud/hcloud-cloud-controller-manager:v1.12.0
               name: hcloud-cloud-controller-manager
               command:
                 - "/bin/hcloud-cloud-controller-manager"
                 - "--cloud-provider=hcloud"
                 - "--leader-elect=false"
                 - "--allow-untagged-cloud"
-                - "--allocate-node-cidrs=true"
-                - "--cluster-cidr=10.100.0.0/14"
               resources:
                 requests:
                   cpu: 100m
@@ -98,8 +96,3 @@ data:
                     secretKeyRef:
                       name: hcloud
                       key: token
-                - name: HCLOUD_NETWORK
-                  valueFrom:
-                    secretKeyRef:
-                      name: hcloud
-                      key: network

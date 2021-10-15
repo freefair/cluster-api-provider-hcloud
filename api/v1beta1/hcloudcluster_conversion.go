@@ -1,4 +1,4 @@
-package v1alpha3
+package v1beta1
 
 // Hub marks HcloudCluster as a conversion hub.
 func (*HcloudCluster) Hub() {}

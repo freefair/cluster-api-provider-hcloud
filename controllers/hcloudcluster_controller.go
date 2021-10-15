@@ -23,7 +23,7 @@ import (
 	"sync"
 	"time"
 
-	infrav1 "github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/api/v1alpha3"
+	infrav1 "github.com/freefair/cluster-api-provider-hcloud/api/v1beta1"
 	"github.com/go-logr/logr"
 	"github.com/pkg/errors"
 	certificatesv1 "k8s.io/api/certificates/v1beta1"
@@ -36,7 +36,7 @@ import (
 	clientcmd "k8s.io/client-go/tools/clientcmd"
 	"k8s.io/client-go/tools/record"
 	recorder "k8s.io/client-go/tools/record"
-	clusterv1 "sigs.k8s.io/cluster-api/api/v1alpha3"
+	clusterv1 "sigs.k8s.io/cluster-api/api/v1beta1"
 	"sigs.k8s.io/cluster-api/util"
 	ctrl "sigs.k8s.io/controller-runtime"
 	controllerclient "sigs.k8s.io/controller-runtime/pkg/client"
@@ -46,12 +46,12 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 	"sigs.k8s.io/controller-runtime/pkg/source"
 
-	loadbalancer "github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/cloud/resources/loadbalancer"
-	"github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/cloud/resources/location"
-	"github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/cloud/resources/network"
-	"github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/manifests"
-	"github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/packer"
-	"github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/scope"
+	loadbalancer "github.com/freefair/cluster-api-provider-hcloud/pkg/cloud/resources/loadbalancer"
+	"github.com/freefair/cluster-api-provider-hcloud/pkg/cloud/resources/location"
+	"github.com/freefair/cluster-api-provider-hcloud/pkg/cloud/resources/network"
+	"github.com/freefair/cluster-api-provider-hcloud/pkg/manifests"
+	"github.com/freefair/cluster-api-provider-hcloud/pkg/packer"
+	"github.com/freefair/cluster-api-provider-hcloud/pkg/scope"
 )
 
 var errNoReadyAPIServer = errors.New("No ready API server was found")

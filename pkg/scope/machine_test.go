@@ -3,9 +3,9 @@ package scope
 import (
 	"testing"
 
-	clusterv1 "sigs.k8s.io/cluster-api/api/v1alpha3"
+	clusterv1 "sigs.k8s.io/cluster-api/api/v1beta1"
 
-	infrav1 "github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/api/v1alpha3"
+	infrav1 "github.com/freefair/cluster-api-provider-hcloud/api/v1beta1"
 )
 
 func newFakeMachineScope() *MachineScope {

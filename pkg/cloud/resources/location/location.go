@@ -6,8 +6,8 @@ import (
 	"sort"
 	"strings"
 
-	infrav1 "github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/api/v1alpha3"
-	"github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/scope"
+	infrav1 "github.com/freefair/cluster-api-provider-hcloud/api/v1beta1"
+	"github.com/freefair/cluster-api-provider-hcloud/pkg/scope"
 	"github.com/hetznercloud/hcloud-go/hcloud"
 )
 

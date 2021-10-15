@@ -1,4 +1,4 @@
-package v1alpha3
+package v1beta1
 
 import (
 	"fmt"
@@ -23,7 +23,7 @@ func (r *HcloudClusterList) SetupWebhookWithManager(mgr ctrl.Manager) error {
 		Complete()
 }
 
-// +kubebuilder:webhook:verbs=create;update,path=/validate-cluster-api-provider-hcloud-capihc-com-v1alpha3-hcloudcluster,mutating=false,failurePolicy=fail,matchPolicy=Equivalent,groups=cluster-api-provider-hcloud.capihc.com,resources=hcloudclusters,versions=v1alpha3,name=validation.hcloudcluster.cluster-api-provider-hcloud.capihc.com
+// +kubebuilder:webhook:verbs=create;update,path=/validate-cluster-api-provider-hcloud-capihc-com-v1beta1-hcloudcluster,mutating=false,failurePolicy=fail,matchPolicy=Equivalent,groups=cluster-api-provider-hcloud.capihc.com,resources=hcloudclusters,versions=v1beta1,name=validation.hcloudcluster.cluster-api-provider-hcloud.capihc.com
 
 var _ webhook.Validator = &HcloudCluster{}
 

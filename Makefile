@@ -42,7 +42,7 @@ vet:
 # TODO: Bazelify
 mockgen:
 	mkdir -p pkg/scope/mock
-	mockgen github.com/cluster-api-provider-hcloud/cluster-api-provider-hcloud/pkg/scope HcloudClient,Manifests,Packer > pkg/scope/mock/scope.go
+	mockgen github.com/freefair/cluster-api-provider-hcloud/pkg/scope HcloudClient,Manifests,Packer > pkg/scope/mock/scope.go
 
 
 # Generate hack/build/repos.bzl from go.mod
