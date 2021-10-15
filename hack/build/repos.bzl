@@ -1767,7 +1767,7 @@ def go_repositories():
         build_file_proto_mode = "disable_global",
         importpath = "sigs.k8s.io/cluster-api",
         sum = "h1:hSIdfaNAHxZpB7r6W6iNoRjm4feqfeKgc0QorfYGyLo=",
-        version = "v0.3.16",
+        version = "v1.0.0",
     )
     go_repository(
         name = "io_k8s_sigs_controller_runtime",
